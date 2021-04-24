@@ -52,4 +52,4 @@ AWS에서 배포하기 위해 알아야 할 핵심 키워드 세 개를 한 번 
 
 
 출처:
-[스프링 부트와 AWS로 혼자 구현하는 웹 서비스](https://jojoldu.tistory.com/463)ㅇ
+[스프링 부트와 AWS로 혼자 구현하는 웹 서비스](https://jojoldu.tistory.com/463)
