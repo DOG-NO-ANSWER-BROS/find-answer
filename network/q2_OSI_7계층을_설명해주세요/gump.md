@@ -1,0 +1,110 @@
+# q2_OSI_7계층을_설명해주세요
+# 정리
+
+## **OSI 7계층이란?**
+
+OSI7계층은 네트워크에서 통신이 일어나는 과정을 7단계로 나눈 것을 말해요. 
+
+### **계층이 나눠진 이유는?**
+
+통신이 일어나는 과정을 단계적으로 파악하기 위함이에요.
+
+또한, 7단계 중 특정한 곳의 에러가 다른 단계로 번지지 않게 하기 위함이에요.
+
+### **얼마나 중요한가?**
+
+최근에는 TCP/IP Model이 시장 점유에서 이겨, 그 중요성이 떨어지고 있어요.
+
+하지만 이론적인 가치가 충분히 있고, 새로운 model이 나오더라도, OSI 7 Layer과 대비할 수 있기 때문에 여전히 중요해요.
+
+TCP/IP 모델의 과정은 [이전 포스트](https://livenow14.tistory.com/45)에서 다뤘어요.
+
+![https://user-images.githubusercontent.com/48986787/119008905-8ffba500-b9cd-11eb-9cb5-0d2df016e66b.png](https://user-images.githubusercontent.com/48986787/119008905-8ffba500-b9cd-11eb-9cb5-0d2df016e66b.png)
+
+<br>
+
+## **1. 물리(Physical) 계층**
+
+![https://user-images.githubusercontent.com/48986787/119014451-f33c0600-b9d2-11eb-9151-28926d7e6dfe.png](https://user-images.githubusercontent.com/48986787/119014451-f33c0600-b9d2-11eb-9151-28926d7e6dfe.png)
+
+네트워크 노드 간의 물리적 케이블 또는 무선 연결을 담당해요
+
+encoding: 0과 1의 나열을 아날로그 신호로 바꾸어 전선으로 흘려보내요
+
+decoding: 아날로그 신호가 들어오면 0과 1의 나열로 해석해요
+
+물리적으로 연결된 두 대의 컴퓨터가 0과 1의 나열을 주고받을 수 있게 해주는 모듈이에요(함수)
+
+### **하드웨어에서 구현**
+
+인터넷 케이블, 무선 주파수링크, 핀 배치, 전압, 물리 요건
+
+PHY 칩(모듈 구현)
+
+<br>
+
+## **2. 데이터 링크(Data Link) 계층**
+
+![https://user-images.githubusercontent.com/48986787/119015527-f1267700-b9d3-11eb-8724-902f1b33c9c4.png](https://user-images.githubusercontent.com/48986787/119015527-f1267700-b9d3-11eb-8724-902f1b33c9c4.png)
+
+장치간 신호를 전달하는 물리계층을 이용하여 연결된 네트워크 노드간에 데이터를 전송해요
+
+framing이라는 기술을 사용하여 `프레임(Frames, 1111 ~ 0000)`으로 감싸요.
+
+같은 네트워크에 있는 여러 대의 컴퓨터들이 데이터를 주고받기 위해서 필요한 모듈이에요(함수)
+
+물리적 주소인 mac주소를 통해 통신을 하게돼요.
+
+### 2개의 부계층
+
+네트워크 프로토콜을 식별하고 오류 검사를 수행하고, 프레임을 동기화하는 LLC(논리적 연결 제어, Logical Link Control),
+
+MAC(매체 접근 제어,Media Access Control)주소를 사용하여 데이터 전송 및 수신 권한을 정의하는 MAC의 두 부계층으로 구성돼요
+
+### **하드웨어에서 구현**
+
+랜카드, 스위치
+
+## 3. **네트워크(Network) 계층**
+
+![https://user-images.githubusercontent.com/48986787/119018102-b07c2d00-b9d6-11eb-833d-2847554731a6.png](https://user-images.githubusercontent.com/48986787/119018102-b07c2d00-b9d6-11eb-833d-2847554731a6.png)
+
+데이터 링크에서 받은 프레임 내부에 포함된 IP주소를 기반으로 원하는 목적지로 전달하는 역할을 해요.
+
+프레임을 `패킷(Packets, 출발지, 목적지 IP, 기타)`으로 감싸요.
+
+논리적 주소인 IP주소를 통해 길을찾고(routing) 자신의 다음 라우터에게 데이터를 넘겨줘요(forwarding)
+
+즉, 라우터의 기능 대부분이 여기 네트워크 계층에 자리잡아요. 다른 여러 라우터를 통한 라우팅을 비롯한 패킷 포워딩을 담당해요.
+
+### 소프트웨어적으로 **구현**
+
+운영체제의 커널
+
+<br>
+
+## 결론
+
+네트워크 시스템은 소프트웨어 아키텍처인 Layered 아키텍처를 따라요. 
+
+즉, 네트워크 시스템은 하나의 커다란 소프트웨어라 볼 수 있어요.
+
+결론적으로, OSI 7 Layer 모델은 거대한 네트워크 소프트웨어의 구조를 설명하는 것이에요. 
+
+## Refer
+
+[https://daystudy.tistory.com/733](https://daystudy.tistory.com/733)
+
+[https://velog.io/@xldksps4/OSI-7계층](https://velog.io/@xldksps4/OSI-7%EA%B3%84%EC%B8%B5)
+
+[https://www.youtube.com/watch?v=1pfTxp25MA8&t=712s](https://www.youtube.com/watch?v=1pfTxp25MA8&t=712s)
+
+# 질문
+
+## 나만 알만한 것
+
+### 질문
+
+데이러 링크층의 맥의 라우팅은 어떠한 기술을 사용하여 동작할까요??
+
+### 답변
