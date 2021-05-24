@@ -3,7 +3,7 @@
 
 ## **OSI 7계층이란?**
 
-OSI7계층은 네트워크에서 통신이 일어나는 과정을 7단계로 나눈 것을 말해요. 
+`OSI(Open Systems Interconnection Reference Model) 7계층`은 네트워크에서 통신이 일어나는 과정을 7단계로 나눈 것을 말해요. 
 
 ### **계층이 나눠진 이유는?**
 
