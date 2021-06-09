@@ -58,3 +58,9 @@
       - exec : rebase 도중 실행할 쉘 커맨드를 입력할 수 있음. 예시
      ![image](https://user-images.githubusercontent.com/51393021/121346774-7e207880-c961-11eb-9728-aaef6e4ab9d6.png) 
 
+# 질문
+
+- Q. 리베이스하면 커밋 해쉬값이 바뀐다. 그렇다면 이전 커밋은 복구할 수 없는걸까?
+- A. 가능하다. git reflog 를 활용하면 기존에 리베이스했던 코드 해쉬도 확인할 수 있다.
+- 아래 이미지는 리베이스를 진행한 후 reflog 명령어를 활용한 예시이다. bbee0d62를 다른 브랜치에 리베이스를 수행하여 해쉬가 bbee0d62 -> e97ea043으로 변경 되었는데, reflog를 활용하면 이전 커밋 해쉬를 찾아올 수 있고 이를 이용해 원하는 복구 작업을 수행할 수 있다.   
+![image](https://user-images.githubusercontent.com/51393021/121442931-88755d80-c9c7-11eb-8105-c73e41f5dd3d.png)
