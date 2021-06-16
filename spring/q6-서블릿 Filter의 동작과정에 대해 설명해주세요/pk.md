@@ -108,7 +108,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyConfiguration {
   
     @Bean
-    public FilterConfigurationBean<MyFilter> myFilterRegistration() {
+    public FilterRegistrationBean<MyFilter> myFilterRegistration() {
       FilterRegistrationBean<MyFilter> registrationBean = new FilterRegistrationBean<>();
       registrationBean.setFilter(myFilter());
       registrationBean.addUrlPatterns("/something");

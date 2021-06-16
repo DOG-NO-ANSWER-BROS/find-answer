@@ -44,8 +44,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-                           ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         // returns true
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
@@ -83,4 +82,18 @@ public class WebMvcConfig implements WebMvcConfigurer {
 `2021-06-16 21:49:40.781  INFO 5151 --- [nio-8080-exec-7] w.s.line.application.LoggingInterceptor  : initialized my interceptor`
 
 인터셉터의 `preHandle`메서드가 false를 반환하면 DispatcherServlet이 필터가 응답을 처리했다고 판단한다.
-그리고 그냥 200 OK http 상태 메시지를 응답으로 반환한다. 
+
+## 질문
+Interceptor의 `preHandle()`이 false를 반환하면 client에 무엇이 전달될까?
+
+답 : 200 ok 응답. 그리고 body에는 아무것도 들어있지 않다. 물론 파라미터로 받은 `request`를 수정하면 원하는 응답을 만들 수 있다:
+```java
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
+                             Object handler) throws Exception {
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        return false;
+    }
+```
+다음과 같이 `preHandle()`을 작성하면 400을 반환한다.
+
