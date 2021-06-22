@@ -41,3 +41,5 @@ Response객체에 stream을 소모 한 후(요청에 내보낼 내용을 작성�
 4. 컨트롤러를 수행하고 나면 인터셉터 리스트를 역 순서로 postHandle() 메소드에 구현해 놓은 로직을 수행한다.
 5. Response에 대한 처리를 완료하고 나면 인터셉터 리스트를 역 순서로 afterCompletion() 메소드에 구현해 놓은 로직을 수행한다. 
 
+## 질문 - WeqRequestInterceptor 란 무엇인가..?
+1. 웹 요청을 추상화 해놓은 WebRequest를 인자로 받아 처리한다. 좀더 간략화한 Interceptor라고 생각한다.
