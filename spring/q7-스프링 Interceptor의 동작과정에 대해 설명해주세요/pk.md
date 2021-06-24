@@ -86,7 +86,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ## 질문
 Interceptor의 `preHandle()`이 false를 반환하면 client에 무엇이 전달될까?
 
-답 : 200 ok 응답. 그리고 body에는 아무것도 들어있지 않다. 물론 파라미터로 받은 `request`를 수정하면 원하는 응답을 만들 수 있다:
+답 : 200 ok 응답. 그리고 body에는 아무것도 들어있지 않다. 물론 파라미터로 받은 `response`를 수정하면 원하는 응답을 만들 수 있다:
 ```java
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
