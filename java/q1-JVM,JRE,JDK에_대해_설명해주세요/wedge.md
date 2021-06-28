@@ -1,4 +1,5 @@
 # 정리
+## JVM,JDK,JRE
 1. JVM은 Java Virtual Machine의 약자이다.
   - JAVA의 대표적인 특징 중 하나는 OS 플랫폼 독립적이라는 것이다.
   - 어떻게 하나의 코드가 unix, window, 임베디드 os 등에서 동일하게 동작하는가? 각자 다른 기계어를 필요로 하는데.
@@ -28,6 +29,14 @@
 
 3. JDK는 Java Development kit의 약자이다.
   - JRE와 기본 구성은 동일하다. 다만 개발자가 작성한 .java코드를 .class로 변환해주는 javac 패키지를 포함하고 있다.
+
+## JAVA 8 vs JAVA 11
+ https://www.javatpoint.com/java-8-vs-java-11
+ - 여러 변화가 있다고 하지만 개인적으로 눈에 띄는 점은 다음과 같다.
+    - String API에 디폴트 메소드 추가 `isBlank(), lines(),repeat(n), stripLeading(), stripTrailing(), strip()`
+    - java9에 추가된 것이지만, Collection API에 default method 추가 `Collection.of() 등`
+    - garbage collector 성능 개선
+    - javaFX 라이브러리 제거 (스윙을 대체하기 위한 GUI 도구)
 
 # 질문
 - 클래스로더, 자바 인터프리터, jit 컴파일러는 뭔가요? 
