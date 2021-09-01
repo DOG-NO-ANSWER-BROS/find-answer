@@ -10,7 +10,7 @@
 
 1. 디스패쳐 서블릿에 요청이 들어온다. 요청은 이미 서블릿 컨테이너에 의해  HttpServletRequest로 추상화된 상태이다. 
 
-2. 이후 MuitifileResolver 등에서 다른 방식으로 처리해야할 요청인지 분석한다.
+2. 이후 MuitifileResolver 등에서 다른 방식으로 처리해야할 요청인지 분석한다. (멀티파트라면 추가적으로 요청 정보를 MultipartHttpServletRequest로 감싼다)
 
 3. 아니라면 HandlingMapping에 요청을 전달하여 요청을 처리할 컨트롤러를 탐색한다.
 
