@@ -40,8 +40,7 @@
    ```
 
 6. 반환받은 모델앤 뷰 객체를 통해 뷰 리졸버를 찾아서 실행한다.
-
-  ```java
+	```java
 	@Nullable
 	protected View resolveViewName(String viewName, @Nullable Map<String, Object> model,
 			Locale locale, HttpServletRequest request) throws Exception {
@@ -56,14 +55,14 @@
 		}
 		return null;
 	}
-  ```
-  ```java
-   public interface ViewResolver {
-    @Nullable
-    View resolveViewName(String viewName, Locale locale) throws Exception;
-   }
+	```
+	```java
+	public interface ViewResolver {
+	@Nullable
+	View resolveViewName(String viewName, Locale locale) throws Exception;
+	}
 
-   ```
+	```
 7. 모델에 값이 있다면 뷰와 함께 렌더링하고, 없다면 뷰를 그대로 반환한다. 이 뷰는 HttpServletResponse객체에 담겨 서블릿 컨테이너에 전달된다.
 
 # 질문
