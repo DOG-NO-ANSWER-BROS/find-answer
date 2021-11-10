@@ -1,7 +1,7 @@
 # 정리
 
 # 객체지향 5원칙 SOLID. 
-2000년대 초 로버트 마틴이 주창한 [객체지향 5원칙](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)을 두문법칙 기억법으로 정리해놓은 것이다.
+2000년대 초 로버트 마틴이 주창한 [객체지향 5원칙](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)을 두문법칙 기억법으로 정리해놓은 것이다.
 
 |원칙|내용|
 |--|--|
@@ -11,7 +11,7 @@
 |ISP	| The Interface Segregation Principle	Make fine grained interfaces that are client specific.
 |DIP	| The Dependency Inversion Principle	Depend on abstractions, not on concretions.
 
-# SRP
+# SRP Single Responsibility Principle, 단일 책임 원칙
 > 동일한 이유로 변경되는 것들은 함께 모으고, 서로 다른 이유로 변경되는 것들은 분리시킨다.
 > 
 
@@ -80,3 +80,23 @@ public void save(Employee e) ...
 1차 분리를 통해 결과 보고 컴포넌트들은 보고 컴포넌트로, 데이터 베이스와 관련된 모든 클래스는 저장소 컴포넌트로, 비즈니스 룰에 대한 클래스는 비즈니스 룰 컴포넌트로 들어갈 수 있게 된다.
 
 하지만 여전히 의존관계는 존재한다. Employee가 수정되면 다른 클래스들도 재 컴파일되고 재 배포되어야 한다. 여전히 Employee를 수정하여 독립적으로 재배포 할 수는 없다. 그러나 그외 다른 클래스들은 수정 및 독립적인 재배포가 가능해진다. 여기에서 DI를 잘 활용하면, Employee 역시 독립적으로 재배포가 가능해질 것이다. 
+
+# OCP Open Closed Principle, 확장에는 열려있고 변경에는 닫혀있다.
+
+기능을 변경 또는 확장할 수 있으면서 그 기능을 사용하는 코드는 수정하지 않아야 한다.
+
+기능을 변경하는 데 코드는 수정하지 않는다? 조금은 현학적인 말이다. 의미를 알고 있는 사람에게는 통용되지만, 모르는 사람이 이 문장을 읽고 OCP의 요체를 알아채기는 쉽지 않다.
+
+이해하기 쉽도록 풀어쓰자면 다음과 같다.
+
+> 기능이 추가될 것이라 예상되는 메소드나 클래스는, 추상화(인터페이스화)하여 구현한다. 새로운 기능이 추가 되었을 때 해당 인터페이스를 주입한다면 원래 코드는 손대지 않을 수 있다. 
+
+예컨데 writeFile 이라는 메소드가 있다 하자. 구현한 후, 나중에 기능 요구사항이 추가되어 writeInputStream을 만들었다. 시간이 흘러 콘솔 입력을 만들어 달라는 요구사항이 들어오면
+writeConsole이라는 메소드를 만들게 될 것이다.
+
+writeInput이라는 메서드로 추상화 했으면 어떨까? Writer라는 인터페이스를 만들고, write(); 를 구현하도록 설계한다면 FileWriter, ConsoleWriter, InputStreamReader... 얼마든지 추가해서 런타임 시에 주입하여 사용할 수 있을 것이다.
+
+## Crystal Ball 은 없다.
+하지만 OCP를 실제 적용하는 데에는 'Crystal Ball'이라는 문제가 있다. 우리는 미래의 요구사항 변화를 마치 요술사의 수정구 처럼 정확하게 예상할 수 없다. 불가능하다고 단언할 수 있다.
+
+경험으로부터 변화가 예상되는 사항들이 있다. 해당 내용들은 abstraction을 통해 보호하고, 아직 오지 않은 변경사항에 대해선 고객의 요구가 있을 때 까지 기다리자.
